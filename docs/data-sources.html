@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Data sources | YOUR TITLE HERE</title>
   <meta name="description" content="Chapter 2 Data sources | YOUR TITLE HERE" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Data sources | YOUR TITLE HERE" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="YOUR NAMES HERE" />
 
 
-<meta name="date" content="2020-11-09" />
+<meta name="date" content="2021-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="data-transformation.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 
@@ -72,7 +73,9 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#employment-by-years"><i class="fa fa-check"></i><b>2.1</b> Employment by Years</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
 <li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
@@ -97,9 +100,33 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-sources" class="section level1" number="2">
+<div id="data-sources" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Data sources</h1>
+<div id="employment-by-years" class="section level2">
+<h2><span class="header-section-number">2.1</span> Employment by Years</h2>
+<p>In order to have an idea of the changes of number of employed in different occupations by years, we use an interactive bar chart to show the trends more clearly. When you click on a year, the button will turn palevioletred and the bar chart will provide you with the employment data of that year. The palevioletred colored bars mean the number of employed in this specific occupation is larger than the one of your previous click. Instead, the pink bars represent the number of employed decrease.<br />
+<br />
+We’ve also posted this D3 code on vizhub, the link of the D3 code is attached here: <a href="https://vizhub.com/tracy3057/690c112af43a42e4a539a0a4c891f77e?edit=files&amp;file=index.js&amp;line" class="uri">https://vizhub.com/tracy3057/690c112af43a42e4a539a0a4c891f77e?edit=files&amp;file=index.js&amp;line</a></p>
+<head>
+<title>
+Organization Graph Diagram
+</title>
+<style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+    </style>
+<script src="https://unpkg.com/d3@6.2.0/dist/d3.min.js"></script>
+</head>
+<body>
+<svg id="container" width="960" height="1220">
+</svg>
+<script src="scripts/nodes.js"></script>
+</body>
 
+</div>
 </div>
             </section>
 

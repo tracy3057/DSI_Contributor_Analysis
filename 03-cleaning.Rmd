@@ -1,1 +1,13 @@
 # Data transformation
+
+```{r Imports, include=FALSE,echo=FALSE}
+library(tidyverse)
+library(RCurl)
+library(plyr)
+library(dplyr)
+library(forcats)
+library(parcoords)
+library(scales)
+library(mosaic)
+library(vcd)
+```
