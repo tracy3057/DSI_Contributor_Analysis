@@ -115,11 +115,11 @@ To see the specific variation over years, I used d3 to illustrate an interactive
 
 From the above interactive chart, the following trend shows up:\
 
-  * In year 2015, the number of proposals in DSI had a sudden growth and DSI ranked from the second to the first;\
+ 1) In year 2015, the number of proposals in DSI had a sudden growth and DSI ranked from the second to the first;\
   
-  * In year 2018,  the number of proposals in A&S had a sudden growth and it ranked from the third to the second;\
+ 2) In year 2018,  the number of proposals in A&S had a sudden growth and it ranked from the third to the second;\
   
-  * In year 2020, there was a huge shrink in the number of proposals, maybe due to COVID-19.
+ 3) In year 2020, there was a huge shrink in the number of proposals, maybe due to COVID-19.
 
 
 

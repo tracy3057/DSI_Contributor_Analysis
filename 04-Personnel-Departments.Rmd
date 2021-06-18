@@ -119,8 +119,8 @@ To see the specific variation over years, I used d3 to show an interactive bar c
 
 From the above interactive chart, the following trend shows up:\
 
-  * The overall trend of proposals in home departments is increasing, while in 2020, there was a sudden decrease, maybe due to COVID-19;\
+ 1) The overall trend of proposals in home departments is increasing, while in 2020, there was a sudden decrease, maybe due to COVID-19;\
   
-  * DSI General had huge increases in 2015 and 2017 and it rank first in every year;\
+ 2) DSI General had huge increases in 2015 and 2017 and it rank first in every year;\
   
-  * A&S Astrophysics Lab had a sudden increase in 2018, and a sudden decrease in 2020.
+ 3) A&S Astrophysics Lab had a sudden increase in 2018, and a sudden decrease in 2020.
