@@ -46,7 +46,7 @@
 
 
   // initialize buttons
-  const button = d3$1.select("#proposals-per-year").select('div#container');
+  const button = d3$1.select("#proposals-per-year-1").select('div#container');
   button.append('div').attr('id','year2013').text("2013").style("text-align","center");
   button.append('div').attr('id','year2014').text("2014").style("text-align","center");
   button.append('div').attr('id','year2015').text("2015").style("text-align","center");

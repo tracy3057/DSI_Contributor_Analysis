@@ -27,7 +27,7 @@ mytheme <- theme(axis.text=element_text(size = 10),
   legend.text = element_text(size = 12))
 ```
 
-## Personnel Home Department and Primary Responsible Department**
+**Personnel Home Department and Primary Responsible Department**
 
 In order to have a general look at the personnel home departments and primary responsible departments, I used an interactive nodes network to show all related departments and there connections. In the plot, the blue nodes show the primary responsible departments and the pink nodes show the personnel home departments. When the pink node is connected with the blue node, it means the pink node department had participated in one or more proposals that has been in charged of by the blue node department.\
 

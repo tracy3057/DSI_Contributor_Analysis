@@ -1,6 +1,5 @@
 introduction
 general-trend
-personnel-home-department-and-primary-responsible-department
 personnel-home-schools
 sum-of-proposals
 variation-of-proposals
