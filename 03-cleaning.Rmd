@@ -114,18 +114,17 @@ To see the specific variation over years, I used d3 to show an interactive bar c
 
 **Note:** In the interative bar chart, you can click on the year to see the specific number of proposal of the selected year. If the number is greater than the previous selection, the color will be dark. If the number is smaller, the color will be light.
 
-<html>
-  <head>
+ <head>
     <title>home dept top 5</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://d3js.org/d3.v6.js"></script>
   </head>
   <body>
     <svg width="960" height="450"></svg>
+    <div id = "container"></div>
     <script src="scripts/homedept.js"></script>
   </body>
-</html>
-  
+
 
 
 

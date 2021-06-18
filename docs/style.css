@@ -12,6 +12,7 @@ pre {
 pre code {
   white-space: inherit;
 }
+
 body {
   margin: 0;
   overflow: hidden;
@@ -43,7 +44,7 @@ text {
 }
 
 #container {
-  height: 100%;
+  height: 20;
   width: 100%;
   display: flex;
   margin-left: 5%;

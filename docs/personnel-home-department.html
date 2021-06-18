@@ -120,7 +120,6 @@ It’s clear that the variations have a very strong positive connection with the
 As can be seen from the plot, in ENG department, ENG IEOR General and ENG CVN have the highest percentage of variance. In A&amp;S, A&amp;P Political Science, A&amp;S Mathematics, A&amp;S English &amp; Comparative Lit, A&amp;S Economics, A&amp;S Earth &amp; Environ Sci, A&amp;S E3B and A&amp;S Centers have the highest percentage of variance, and the percentages all reaches 100%. Surprisingly, ENG Computer Science, ENG Electrical Engineering, DSI General, A&amp;S Columbia Astrophysics Lab and A&amp;S Statistics, which have very large number of variation in proposals, get relatively low variance in percentage. This may be because the sub-departments with very small number of proposals may vary from 0 proposal in some year to more than one proposals in some other year, then the percentage of variance will be 100%. Comparatively, the sub-departments with large number of proposals are stable in some degree.</p>
 <p>To see the specific variation over years, I used d3 to show an interactive bar chart of the variation of number of proposals with the five departments that varies most over years.</p>
 <p><strong>Note:</strong> In the interative bar chart, you can click on the year to see the specific number of proposal of the selected year. If the number is greater than the previous selection, the color will be dark. If the number is smaller, the color will be light.</p>
-<html>
 <head>
 <title>
 home dept top 5
@@ -131,9 +130,11 @@ home dept top 5
 <body>
 <svg width="960" height="450">
 </svg>
+<div id="container">
+
+</div>
 <script src="scripts/homedept.js"></script>
 </body>
-</html>
 
 </div>
 </div>
