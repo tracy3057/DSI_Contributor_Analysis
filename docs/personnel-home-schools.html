@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>DSI Contribution Analysis</title>
-  <meta name="description" content="DSI Contribution Analysis" />
+  <title>Chapter 3 Personnel Home Schools | DSI Contribution Analysis</title>
+  <meta name="description" content="Chapter 3 Personnel Home Schools | DSI Contribution Analysis" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="DSI Contribution Analysis" />
+  <meta property="og:title" content="Chapter 3 Personnel Home Schools | DSI Contribution Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="DSI Contribution Analysis" />
+  <meta name="twitter:title" content="Chapter 3 Personnel Home Schools | DSI Contribution Analysis" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="general-trend.html"/>
+<link rel="prev" href="general-trend.html"/>
+<link rel="next" href="personnel-home-departments.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -108,35 +108,67 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">DSI Contribution Analysis</h1>
-<p class="author"><em>Tracy Liu</em></p>
-<p class="date"><em>2021-06-19</em></p>
+<div id="personnel-home-schools" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Personnel Home Schools</h1>
+<p>In the provided data, there has been 85 different home departments and they belong to 35 different home school (suppose the first three letters show the school names). In this chapter, the number of proposals is analyzed from the aspect of personnel home schools.</p>
+<div id="sum-of-proposals" class="section level2">
+<h2><span class="header-section-number">3.1</span> Sum of Proposals</h2>
+<p>One inportant aspect of analyzing the proposals is the total number of proposals. A cleveland dot plot is drawn to show the sum of proposals over year for different schools.</p>
+<p><img src="finalproj_files/figure-html/Aggregate%20Cleveland%20Dot%20Plot1111-1.png" width="672" /></p>
+<p>As can be seen from the above cleveland dot plot, the majority of proposals are participated by DSI, ENG and A&amp;S department. This part encounters the majority of proposals.</p>
+<p>The primary responsible departments belong to two schools, ENG and DSI. Therefore, I separated the number of proposals according to the primary responsible departments to see if there are some hidden rules. Due to the large difference in quantity, I used log scale in the following cleveland dot plot.</p>
+<p><img src="finalproj_files/figure-html/Gender%20Cleveland%20Dot%20Plot111-1.png" width="672" /></p>
+<p>As can be seen from the above cleveland dot plot, regardless of the personnel departments, the majority of the proposals are in charge of by the ENG department category. However, when having a closer look at the specific names of the primary responsible department names, I discovered that there are some overlapping of the naming of departments. For example, we have ENG Data Science Research under ENG department, but not DSI department.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This book illustrate the proposals that DSI has taken part in. It consists of 5 parts:<br />
+<div id="variation-of-proposals" class="section level2">
+<h2><span class="header-section-number">3.2</span> Variation of Proposals</h2>
+<p>It’s also important to learn the variation of number of proposals of different personnel home departments over years. I used the range (maximum - minimum) of number of proposals to illustrate this variation.</p>
+<p><img src="finalproj_files/figure-html/Aggregate%20Cleveland%20Dot%20Plowt2-1.png" width="672" />
+As can be seen from the above plot, the personnel home departments with top three variation in proposal numbers over years are A&amp;S, DSI and ENG. This is to some extent consistent with the total number of proposals, while the order of the top three departments are different.</p>
+</div>
+<div id="proposals-per-year" class="section level2">
+<h2><span class="header-section-number">3.3</span> Proposals per Year</h2>
+<p>To see the specific variation over years, I used d3 to illustrate an interactive bar chart of the variation of number of proposals with the five departments that varies most over years.</p>
+<p><strong>Note:</strong> In the interactive bar chart, you can click on the year to see the specific number of proposal of the selected year. If the number is greater than the previous selection, the color will be dark. If the number is smaller, the color will be light.</p>
+<head>
+<title>
+home dept top 5
+</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://d3js.org/d3.v6.js"></script>
+</head>
+<body>
+<svg id="first" width="700" height="440">
+</svg>
+<div id="container">
+
+</div>
+<script src="scripts/homedept.js"></script>
+</body>
+<p><br />
+<br />
+</p>
+<p>From the above interactive chart, the following trend shows up:<br />
 </p>
 <ul>
-<li><p>The general trend of number of proposals, number of personnel departments related to the proposals and number of primary responsible departments;<br />
+<li><p>In year 2015, the number of proposals in DSI had a sudden growth and DSI ranked from the second to the first;<br />
+</p>
+<ul>
+<li><p>In year 2018, the number of proposals in A&amp;S had a sudden growth and it ranked from the third to the second;<br />
 </p></li>
-<li><p>The number of proposals variation in the perspective of personnel home schools over years;<br />
-</p></li>
-<li><p>The number of proposals variation in the perspective of personnel departments over years;<br />
-</p></li>
-<li><p>The number of proposals variation in the perspective of primary responsible departments over years;<br />
-</p></li>
-<li><p>Analysis on the properties of proposals.</p></li>
+<li><p>In year 2020, there was a huge shrink in the number of proposals, maybe due to COVID-19.</p></li>
+</ul></li>
 </ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="general-trend.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="general-trend.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="personnel-home-departments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -167,7 +199,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/main/index.Rmd",
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/main/03-Personnel-School.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -175,7 +207,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/main/index.Rmd",
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/main/03-Personnel-School.Rmd",
 "text": null
 },
 "download": null,

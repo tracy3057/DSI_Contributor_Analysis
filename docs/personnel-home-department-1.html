@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Missing values | DSI Contribution Analysis</title>
-  <meta name="description" content="Chapter 4 Missing values | DSI Contribution Analysis" />
+  <title>Chapter 5 Personnel Home Department | DSI Contribution Analysis</title>
+  <meta name="description" content="Chapter 5 Personnel Home Department | DSI Contribution Analysis" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Missing values | DSI Contribution Analysis" />
+  <meta property="og:title" content="Chapter 5 Personnel Home Department | DSI Contribution Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Missing values | DSI Contribution Analysis" />
+  <meta name="twitter:title" content="Chapter 5 Personnel Home Department | DSI Contribution Analysis" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="personnel-home-department.html"/>
-<link rel="next" href="personnel-home-department-1.html"/>
+<link rel="prev" href="missing-values.html"/>
+<link rel="next" href="results.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -103,16 +103,26 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="missing-values" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Missing values</h1>
+<div id="personnel-home-department-1" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Personnel Home Department</h1>
+<p>As can be seen from the above cleveland dot plot, the majoority of proposals are participated by DSI, ENG and A&amp;S department. To see which sub-departments contributes most to the number of proposals, I used another cleveland dot plot with the detailed information of sub-departments of DSI, ENG and A&amp;S.</p>
+<p><img src="finalproj_files/figure-html/3-1.png" width="672" style="display: block; margin: auto;" />
+From the above plot, we notice that DSI only have one sub-department, which is DSI General. In ENG department, ENG Computer Science and ENG Electrical Engineering contributes most to the proposals. In A&amp;S department, A&amp;S Columbia Astropyysics Lab, amd A&amp;S Statistics contributes most to the number of proposals.</p>
+<p>As can be seen from the above plot, the personnel departments with top three variation in proposal numbers over years are A&amp;S, DSI and ENG. This is to some extent consistent with the total number of proposals participated by different departments, while the order of the top three departments are different. In the departments with top three variations, DSI department only has one sub-department, which is DSI General, and it means the proposal variation of this sub-department contributes to all the variation of the whole DSI department. Apart from this department, the other two departments have more than one sub-department, so three separate cleveland dot plots are drawn to show which sub-departments contributes most to the variations.</p>
+<p><img src="finalproj_files/figure-html/45-1.png" width="672" style="display: block; margin: auto;" />
+It’s clear that the variations have a very strong positive connection with the number of proposals. Therefore, I used another cleveland dot plot to show the normalized variance, which is equal to the range of proposals over years divided by the sum of .</p>
+<p>It’s clear that the variations have a very strong positive connection with the number of proposals. Therefore, I used another cleveland dot plot to show the normalized variance, which is equal to the range of proposals over years divided by the sum of proposals of that school.</p>
+<p><img src="finalproj_files/figure-html/33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>As can be seen from the plot, in ENG department, ENG IEOR General and ENG CVN have the highest percentage of variance. In A&amp;S, A&amp;P Political Science, A&amp;S Mathematics, A&amp;S English &amp; Comparative Lit, A&amp;S Economics, A&amp;S Earth &amp; Environ Sci, A&amp;S E3B and A&amp;S Centers have the highest percentage of variance, and the percentages all reaches 100%. Surprisingly, ENG Computer Science, ENG Electrical Engineering, DSI General, A&amp;S Columbia Astrophysics Lab and A&amp;S Statistics, which have very large number of variation in proposals, get relatively low variance in percentage. This may be because the sub-departments with very small number of proposals may vary from 0 proposal in some year to more than one proposals in some other year, then the percentage of variance will be 100%. Comparatively, the sub-departments with large number of proposals are stable in some degree.</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="personnel-home-department.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="personnel-home-department-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="missing-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

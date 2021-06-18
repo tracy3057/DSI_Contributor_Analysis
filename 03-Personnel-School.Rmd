@@ -1,0 +1,129 @@
+# Personnel Home Schools
+
+In the provided data, there has been 85 different home departments and they belong to 35 different home school (suppose the first three letters show the school names). In this chapter, the number of proposals is analyzed from the aspect of personnel home schools.
+
+```{r Imports211, include=FALSE,echo=FALSE}
+library(tidyverse)
+library(RCurl)
+library(plyr)
+library(dplyr)
+library(forcats)
+library(parcoords)
+library(scales)
+library(mosaic)
+library(vcd)
+library(ggpubr)
+```
+
+
+```{r files21, include=FALSE,echo=FALSE}
+home_dept <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept.csv',header = TRUE)
+#yearly_home <- distinct(select(AggregateData, `PERSONNEL.DEPARTMENT.NAME`, year))
+#yearly_primary <- distinct(select(AggregateData, `PRIMARY.RESPONSIBLE.DEPARTMENT.NAME`, year))
+home_dept_separate <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_separate.csv',header = TRUE)
+home_dept_var <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_var.csv',header = TRUE)
+home_sub_dept_yearly <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_sub_dept_yearly.csv',header = TRUE)
+home_dept_top4 <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_top4.csv',header = TRUE)
+home_dept_var_per <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_var_per.csv',header = TRUE)
+home_dept_separate$responsible_dept <- as.factor(home_dept_separate$responsible_dept)
+home_sub_dept_yearly$personnel_dept <- as.factor(home_sub_dept_yearly$personnel_dept)
+home_dept_top4$personnel_dept <- as.factor(home_dept_top4$personnel_dept)
+home_dept_var_per$personnel_dept <- as.factor(home_dept_var_per$personnel_dept)
+home_sub_dept_yearly <- home_sub_dept_yearly %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+home_dept_top4 <- home_dept_top4 %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+home_dept_var_per <- home_dept_var_per %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+
+
+mytheme <- theme(axis.text=element_text(size = 10),
+  axis.title=element_text(size=14, face = "bold"),
+  plot.title = element_text(size = 14.5, face = "bold",hjust = 0.5),
+  legend.title = element_text(size = 14),
+  legend.text = element_text(size = 12))
+
+mytheme2 <- theme(axis.text=element_text(size = 10),
+  axis.title=element_text(size=14, face = "bold"),
+  plot.title = element_text(size = 14.5, face = "bold",hjust = 0.5),
+  legend.title = element_text(size = 14),
+  legend.text = element_text(size = 12),
+  legend.position = c(.95, .75),
+  legend.justification = c("right", "top"),
+  legend.box.just = "right",
+  legend.margin = margin(6, 6, 6, 6))
+```
+
+## Sum of Proposals
+
+One inportant aspect of analyzing the proposals is the total number of proposals. A cleveland dot plot is drawn to show the sum of proposals over year for different schools.
+
+```{r Aggregate Cleveland Dot Plot1111,fig.width=7,fig.height = 6, echo=FALSE}
+# a general analysis with average numemp of all occupations by using cleveland dot plot
+
+ggplot(home_dept) +
+  geom_point(aes(TITLE, reorder(personnel_dept,TITLE)),color = "royalblue3", size = 2, alpha = 0.75) + ylab('Personnel School') + xlab('Proposal Number') + 
+  ggtitle('Number of Proposals in Home School') +
+  mytheme
+```
+
+As can be seen from the above cleveland dot plot, the majority of proposals are participated by DSI, ENG and A&S department. This part encounters the majority of proposals.
+
+The primary responsible departments belong to two schools, ENG and DSI. Therefore, I separated the number of proposals according to the primary responsible departments to see if there are some hidden rules. Due to the large difference in quantity, I used log scale in the following cleveland dot plot.
+
+```{r Gender Cleveland Dot Plot111,fig.width=7,fig.height = 6, echo=FALSE}
+ggplot(home_dept_separate, aes(TITLE,fct_reorder2(personnel_dept,responsible_dept=='ENG',TITLE, .desc=FALSE), color = responsible_dept)) +
+  geom_point(size = 2, alpha = 0.7) +
+  ylab('Personnel School') + xlab('Proposal Number') + ggtitle('Number of Proposals in Home Schools (group by Responsible Depts)') +
+scale_color_manual(values=c('seagreen3','mediumorchid')) +
+scale_x_log10()+
+  mytheme2
+```
+
+As can be seen from the above cleveland dot plot, regardless of the personnel departments, the majority of the proposals are in charge of by the ENG department category. However, when having a closer look at the specific names of the primary responsible department names, I discovered that there are some overlapping of the naming of departments. For example, we have ENG Data Science Research under ENG department, but not DSI department.
+
+
+## Variation of Proposals
+
+It's also important to learn the variation of number of proposals of different personnel home departments over years. I used the range (maximum - minimum) of number of proposals to illustrate this variation.
+
+```{r Aggregate Cleveland Dot Plowt2,fig.width=7,fig.height = 6, echo=FALSE}
+# a general analysis with average numemp of all occupations by using cleveland dot plot
+ggplot(home_dept_var) +
+  geom_point(aes(range, reorder(personnel_dept,range)),color = "royalblue3", size = 2, alpha = 0.75) + ylab('Personnel School') + xlab('Proposal Number') + 
+  ggtitle('Variation of Proposals in Home Schools') +
+  mytheme
+```
+As can be seen from the above plot, the personnel home departments with top three variation in proposal numbers over years are A&S, DSI and ENG. This is to some extent consistent with the total number of proposals, while the order of the top three departments are different. 
+
+## Proposals per Year
+
+To see the specific variation over years, I used d3 to illustrate an interactive bar chart of the variation of number of proposals with the five departments that varies most over years.
+
+**Note:** In the interactive bar chart, you can click on the year to see the specific number of proposal of the selected year. If the number is greater than the previous selection, the color will be dark. If the number is smaller, the color will be light.
+
+ <head>
+    <title>home dept top 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v6.js"></script>
+  </head>
+  <body>
+    <svg id = "first" width="700" height="440"></svg>
+    <div id = "container"></div>
+    <script src="scripts/homedept.js"></script>
+  </body>
+  
+\
+\
+
+From the above interactive chart, the following trend shows up:\
+
+  * In year 2015, the number of proposals in DSI had a sudden growth and DSI ranked from the second to the first;\
+  
+  * In year 2018,  the number of proposals in A&S had a sudden growth and it ranked from the third to the second;\
+  
+  * In year 2020, there was a huge shrink in the number of proposals, maybe due to COVID-19.
+
+
+
+
+
+
+

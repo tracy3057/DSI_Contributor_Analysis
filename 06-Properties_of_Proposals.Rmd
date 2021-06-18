@@ -1,0 +1,39 @@
+# Properties of Proposals
+
+Among all the proposals, some proposals only existed for one year, while others existed for more than one year. To see the categories of how long the proposals have existed, I selected the bar chart.
+
+```{r Imports222e2, include=FALSE,echo=FALSE}
+library(tidyverse)
+library(RCurl)
+library(plyr)
+library(dplyr)
+library(forcats)
+library(parcoords)
+library(scales)
+library(mosaic)
+library(vcd)
+library(ggpubr)
+```
+
+```{r files3323, include=FALSE,echo=FALSE}
+proposal_num <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/proposal_num.csv',header = TRUE)
+proposal_num$FISCAL.YEAR <- as.ordered(proposal_num$FISCAL.YEAR) 
+
+mytheme <- theme(axis.text=element_text(size = 10),
+  axis.title=element_text(size=14, face = "bold"),
+  plot.title = element_text(size = 14.5, face = "bold",hjust = 0.5),
+  legend.title = element_text(size = 14),
+  legend.text = element_text(size = 12))
+```
+
+```{r proposal_nums29, fig.width=8, fig.height=3.5,fig.align = "center"}
+#yearly_proposal
+ggplot(proposal_num, aes(FISCAL.YEAR,TITLE))+
+  geom_col(color ="grey50", fill ="lightblue") +
+  mytheme+
+  xlab("year")+
+  ylab("counts")+
+  ggtitle("Number of Proposals with Different Lasting Years")
+```
+
+As can be seen above, the majority of the proposals are one-year proposals.

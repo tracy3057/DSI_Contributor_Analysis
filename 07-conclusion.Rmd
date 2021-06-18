@@ -1,2 +1,5 @@
 # Conclusion
 
+DSI has grown rapidly over the past years and has participated in many interdisciplinary proposals. Although there are some tiny changes over years, the general increasing trend is very stable. \
+
+However, most proposals are participated by several specific departments, like EE, CS, STATS, etc. For some other departments, like psychology, although they have participated, but the frequency is much lower. Maybe in the future, DSI can try to explore more on these subjects.

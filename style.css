@@ -44,11 +44,32 @@ text {
 }
 
 #container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-left: 5%;
+}
+
+#container2 {
   height: 20px;
   width: 100%;
   position: relative;
   display: flex;
   margin-left: 5%;
+}
+
+#container3 {
+  height: 20px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-left: 5%;
+}
+
+#y2013,#y2014,#y2015,#y2016,#y2017,#y2018,#y2019,#y2020,#y2021 {
+  width: 10%;
+  background-color : pink
 }
 #year2013,#year2014,#year2015,#year2016,#year2017,#year2018,#year2019,#year2020,#year2021 {
   width: 10%;
