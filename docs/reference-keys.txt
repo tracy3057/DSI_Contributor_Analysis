@@ -1,7 +1,7 @@
 introduction
-data-sources
-employment-by-years
-data-transformation
+general-trend
+personnel-home-department
+personnel-department-with-most-proposals
 missing-values
 results
 interactive-component

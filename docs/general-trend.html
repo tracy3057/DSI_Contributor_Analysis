@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Missing values | YOUR TITLE HERE</title>
-  <meta name="description" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <title>Chapter 2 General Trend | YOUR TITLE HERE</title>
+  <meta name="description" content="Chapter 2 General Trend | YOUR TITLE HERE" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <meta property="og:title" content="Chapter 2 General Trend | YOUR TITLE HERE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <meta name="twitter:title" content="Chapter 2 General Trend | YOUR TITLE HERE" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="personnel-home-department.html"/>
-<link rel="next" href="results.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="personnel-home-department.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -100,8 +100,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="missing-values" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Missing values</h1>
+<div id="general-trend" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> General Trend</h1>
+<p><strong>Connections between Personnel Home Department and Primary Responsible Department</strong></p>
+<p>In order to have a general look at the participated departments and primary responsible departments, I draw an interactive node network to show all related departments. In the plot, the blue nodes shows the primary departments.
+<strong>Note:</strong> Only the first several letters of the department name is shown on the node, if you move your mouse on the nodes, you will see the full names.</p>
+<head>
+<title>
+Organization Graph Diagram
+</title>
+<style>
+    <link rel="stylesheet" href="styles.css">
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+    </style>
+<script src="https://unpkg.com/d3@6.2.0/dist/d3.min.js"></script>
+</head>
+<body>
+<svg id="container" width="960" height="1220">
+</svg>
+<script src="scripts/nodes.js"></script>
+</body>
+<p>As we can see from the plot, DSI has participated in many proposals that are related to various departments at Columbia University. However, this interactive network shows all the departments that appeared after 2013. To see the variations of proposal numbers, personnel home department numbers and primary responsible department numbers over years, I use bar charts to illustrate the variations.</p>
+<p><img src="finalproj_files/figure-html/proposal_nums-1.png" width="768" style="display: block; margin: auto;" />
+<img src="finalproj_files/figure-html/home_dept_nums-1.png" width="768" style="display: block; margin: auto;" />
+<img src="finalproj_files/figure-html/primary_dept_nums-1.png" width="768" style="display: block; margin: auto;" />
+As can be seen from the bar charts above, the number of proposals improved rapidly before 2017 and came to a peak in year 2017. After 2017, the number of proposals remained at a high level. Similarly to the number of proposals, the number of participating home departments is also in an increasing trend. However, the increase is relatively slow. Different from proposals and home departments, the number of primary responsible departments doesn’t have an obvious upward trend via years. Instead, the number reaches the bottom in 2018.</p>
 
 </div>
             </section>
@@ -109,8 +136,8 @@
           </div>
         </div>
       </div>
-<a href="personnel-home-department.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="personnel-home-department.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -141,7 +168,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/main/04-missing.Rmd",
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/main/02-data.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -149,7 +176,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/main/04-missing.Rmd",
+"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/main/02-data.Rmd",
 "text": null
 },
 "download": null,

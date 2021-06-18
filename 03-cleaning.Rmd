@@ -1,6 +1,5 @@
-# Data transformation
-
-```{r Imports, include=FALSE,echo=FALSE}
+# Personnel Home Department
+```{r Imports2, include=FALSE,echo=FALSE}
 library(tidyverse)
 library(RCurl)
 library(plyr)
@@ -10,4 +9,125 @@ library(parcoords)
 library(scales)
 library(mosaic)
 library(vcd)
+library(ggpubr)
 ```
+
+
+```{r files2, include=FALSE,echo=FALSE}
+home_dept <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept.csv',header = TRUE)
+#yearly_home <- distinct(select(AggregateData, `PERSONNEL.DEPARTMENT.NAME`, year))
+#yearly_primary <- distinct(select(AggregateData, `PRIMARY.RESPONSIBLE.DEPARTMENT.NAME`, year))
+home_dept_separate <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_separate.csv',header = TRUE)
+home_dept_var <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_var.csv',header = TRUE)
+home_sub_dept_yearly <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_sub_dept_yearly.csv',header = TRUE)
+home_dept_top4 <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_top4.csv',header = TRUE)
+home_dept_var_per <- read.csv(file = '/Users/tracy/Desktop/columbia/vis/home_dept_var_per.csv',header = TRUE)
+home_dept_separate$responsible_dept <- as.factor(home_dept_separate$responsible_dept)
+home_sub_dept_yearly$personnel_dept <- as.factor(home_sub_dept_yearly$personnel_dept)
+home_dept_top4$personnel_dept <- as.factor(home_dept_top4$personnel_dept)
+home_dept_var_per$personnel_dept <- as.factor(home_dept_var_per$personnel_dept)
+home_sub_dept_yearly <- home_sub_dept_yearly %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+home_dept_top4 <- home_dept_top4 %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+home_dept_var_per <- home_dept_var_per %>% dplyr::rename("sub_dept" = `PERSONNEL.DEPARTMENT.NAME`)
+
+
+mytheme <- theme(axis.text=element_text(size = 10),
+  axis.title=element_text(size=14, face = "bold"),
+  plot.title = element_text(size = 14.5, face = "bold",hjust = 0.5),
+  legend.title = element_text(size = 14),
+  legend.text = element_text(size = 12))
+```
+
+## Personnel Department with Most Proposals
+
+
+```{r Aggregate Cleveland Dot Plot1,fig.width=10,echo=FALSE}
+# a general analysis with average numemp of all occupations by using cleveland dot plot
+
+ggplot(home_dept) +
+  geom_point(aes(TITLE, reorder(personnel_dept,TITLE)),color = "royalblue3", size = 2, alpha = 0.75) + ylab('Personnel Department') + xlab('Proposal Number') + 
+  ggtitle('Number of Proposals Participated Different Personnel Departments') +
+  mytheme
+```
+
+As can be seen from the above cleveland dot plot, the majoority of proposals are participated by DSI, ENG and A&S department. To see which sub-departments contributes most to the number of proposals, I used another cleveland dot plot with the detailed information of sub-departments of  DSI, ENG and A&S.
+
+```{r 3, echo=FALSE,fig.align='center'}
+ggdotchart(home_dept_top4, x = "sub_dept", y = "TITLE",
+   group = "personnel_dept", color = "personnel_dept",
+   palette = c('#999999','#E69F00','#56B4E9'),
+   rotate = TRUE,
+   sorting = "descending",
+   ggtheme = theme_bw(),
+   y.text.col = TRUE )
+```
+From the above plot, we notice that DSI only have one sub-department, which is DSI General. In ENG department, ENG Computer Science and ENG Electrical Engineering contributes most to the proposals. In A&S department, A&S Columbia Astropyysics Lab, amd A&S Statistics contributes most to the number of proposals.
+
+
+Next, I separated the number of proposals according to the primary responsible departments. Due to the large difference in quantity, I used log scale in the following cleveland dot plot.
+
+```{r Gender Cleveland Dot Plot,fig.width=10,echo=FALSE}
+ggplot(home_dept_separate, aes(TITLE,fct_reorder2(personnel_dept,responsible_dept=='ENG',TITLE, .desc=FALSE), color = responsible_dept)) +
+  geom_point(size = 2, alpha = 0.7) +
+  ylab('Occupations') + xlab('NumEmps') + ggtitle('Number Employed by Occupation and Gender in NYC') +
+scale_color_manual(values=c('seagreen3','mediumorchid')) +
+scale_x_log10()+
+  mytheme
+```
+As can be seen from the above cleveland dot plot, regardless of the personnel departments, the majority of the proposals are in charge of by the ENG department category. However, when having a closer look at the specific names of the primary responsible sub-department names, I discovered that there are some overlapping of the naming of different sub-departments. For example, we have ENG Data Science Research under ENG department, but not DSI department.
+
+It's also important to learn the variation of number of proposals of different personnel departments over years. I used the range of proposals to illustrate this variation.
+
+```{r Aggregate Cleveland Dot Plot2,fig.width=10,echo=FALSE}
+# a general analysis with average numemp of all occupations by using cleveland dot plot
+ggplot(home_dept_var) +
+  geom_point(aes(range, reorder(personnel_dept,range)),color = "royalblue3", size = 2, alpha = 0.75) + ylab('Personnel Department') + xlab('Proposal Number') + 
+  ggtitle('Number of Proposals Participated Different Personnel Departments') +
+  mytheme
+```
+As can be seen from the above plot, the personnel departments with top three variation in proposal numbers over years are A&S, DSI and ENG. This is to some extent consistent with the total number of proposals participated by different departments, while the order of the top three departments are different. In the departments with top three variations, DSI department only has one sub-department, which is DSI General, and it means the proposal variation of this sub-department contributes to all the variation of the whole DSI department. Apart from this department, the other two departments have more than one sub-department, so three separate cleveland dot plots are drawn to show which sub-departments contributes most to the variations.
+
+```{r 45, echo=FALSE, fig.align='center'}
+ggdotchart(home_sub_dept_yearly, x = "sub_dept", y = "range",
+   group = "personnel_dept", color = "personnel_dept",
+   palette = c('#999999','#E69F00','#56B4E9'),
+   rotate = TRUE,
+   sorting = "descending",
+   ggtheme = theme_bw(),
+   y.text.col = TRUE )
+```
+It's clear that the variations have a very strong positive connection with the number of proposals. Therefore, I used another cleveland dot plot to show the normalized variance, which is equal to the range of proposals over years divided by the sum of . 
+
+```{r 33, echo=FALSE, fig.align='center'}
+ggdotchart(home_dept_var_per, x = "sub_dept", y = "per",
+   group = "personnel_dept", color = "personnel_dept",
+   palette = c('#999999','#E69F00','#56B4E9'),
+   rotate = TRUE,
+   sorting = "descending",
+   ggtheme = theme_bw(),
+   y.text.col = TRUE )
+```
+As can be seen from the plot, in ENG department, ENG IEOR General and ENG CVN have the highest percentage of variance. In A&S, A&P Political Science, A&S Mathematics, A&S English & Comparative Lit, A&S Economics, A&S Earth & Environ Sci, A&S E3B and A&S Centers have the highest percentage of variance, and the percentages all reaches 100%. Surprisingly, ENG Computer Science, ENG Electrical Engineering, DSI General, A&S Columbia Astrophysics Lab and A&S Statistics, which have very large number of variation in proposals, get relatively low variance in percentage. This may be because the sub-departments with very small number of proposals may vary from 0 proposal in some year to more than one proposals in some other year, then the percentage of variance will be 100%. Comparatively, the sub-departments with large number of proposals are stable in some degree.
+
+
+To see the specific variation over years, I used d3 to show an interactive bar chart of the variation of number of proposals with the five departments that varies most over years.
+
+**Note:** In the interative bar chart, you can click on the year to see the specific number of proposal of the selected year. If the number is greater than the previous selection, the color will be dark. If the number is smaller, the color will be light.
+
+<html>
+  <head>
+    <title>home dept top 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v6.js"></script>
+  </head>
+  <body>
+    <svg width="960" height="450"></svg>
+    <script src="scripts/homedept.js"></script>
+  </body>
+</html>
+  
+
+
+
+
+
