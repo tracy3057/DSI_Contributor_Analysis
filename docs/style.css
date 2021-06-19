@@ -43,6 +43,28 @@ text {
   fill: #635F5D;
 }
 
+#svg-container{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%;
+    vertical-align: top;
+    overflow: hidden;
+}
+#svg-container2{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 #container {
   height: 100%;
   width: 100%;

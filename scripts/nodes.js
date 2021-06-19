@@ -486,9 +486,12 @@
   // connectCenterNodes(center, DSIResearchGeneral);
   // connectCenterNodes(center, DSIResearchSTATS);
 
-  const svg = d3$1.select('svg');
-  const width = +svg.attr('width');
-  const height = +svg.attr('height');
+  var svg = d3$1.select('div#svg-container2').append("svg")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 970 900")
+  .classed("svg-content", true);
+  const width = 970;
+  const height = 900;
   const centerX = width / 2.2;
   const centerY = height / 3;
 

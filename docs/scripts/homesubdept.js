@@ -3,9 +3,12 @@
 
   // set the initial margin, width, height
   var margin = { top: 50, right: 40, bottom: 47, left: 200 };
-  var svg = d3$1.select('svg#first');	
-  var width = +svg.attr('width');
-  var height = +svg.attr('height');
+  var svg = d3$1.select('div#svg-container').append("svg")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 600 400")
+  .classed("svg-content", true);
+  var width = 600;
+  var height = 400;
   var innerWidth = width - margin.left - margin.right;
   var innerHeight = height - margin.top - margin.bottom;
 
@@ -34,12 +37,12 @@
 
     svg.append('text')
         .attr('class', 'xAxisLabelText')
-    		.attr('x',350)
-        .attr('y', 425)
+    		.attr('x',300)
+        .attr('y', 390)
         .text(xAxisLabelText);
     svg.append('text')
         .attr('class', 'title')
-    		.attr('x',260)
+    		.attr('x',190)
         .attr('y', 35)
         .text(titleText);
 

@@ -46,7 +46,7 @@ In order to have a general look at the personnel home departments and primary re
     <script src="https://unpkg.com/d3@6.2.0/dist/d3.min.js"></script>
   </head>
   <body>
-    <svg id="container" width="960" height="1220"></svg>
+    <div id="svg-container2" class="svg-container2"></div>
     <script src="scripts/nodes.js"></script>
   </body>
 

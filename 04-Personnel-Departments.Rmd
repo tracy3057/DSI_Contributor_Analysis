@@ -107,7 +107,7 @@ To see the specific variation over years, I used d3 to show an interactive bar c
     <script src="https://d3js.org/d3.v6.js"></script>
   </head>
   <body>
-    <svg id = "first" width="700" height="440"></svg>
+    <div id="svg-container" class="svg-container"></div>
     <div id = "container"></div>
     <script src="scripts/homesubdept.js"></script>
   </body>

@@ -47,7 +47,7 @@ I also use d3 to show the interactive bar chart.
     <script src="https://d3js.org/d3.v6.js"></script>
   </head>
   <body>
-    <svg id = "first" width="700" height="440"></svg>
+    <div id="svg-container" class="svg-container"></div>
     <div id = "container3"></div>
     <script src="scripts/primary_bar.js"></script>
   </body>
