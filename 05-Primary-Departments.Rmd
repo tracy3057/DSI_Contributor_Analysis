@@ -33,6 +33,7 @@ ggplot(pri_yearly, aes(x = FISCAL.YEAR, y = TITLE)) +
   geom_line(aes(color = PRIMARY.RESPONSIBLE.DEPARTMENT.NAME, linetype = PRIMARY.RESPONSIBLE.DEPARTMENT.NAME))+
   scale_x_date(breaks = pri_yearly$FISCAL.YEAR)+
   mytheme+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
   ggtitle("Number of Proposal in Responsible Depts")+
   xlab("year")+
   ylab("count")
