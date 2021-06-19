@@ -31,7 +31,7 @@ mytheme <- theme(axis.text=element_text(size = 10),
 ggplot(proposal_num, aes(FISCAL.YEAR,TITLE))+
   geom_col(color ="grey50", fill ="lightblue") +
   mytheme+
-  xlab("year")+
+  xlab("number of lasting year")+
   ylab("counts")+
   ggtitle("Number of Proposals with Different Lasting Years")
 ```
